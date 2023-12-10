@@ -1,7 +1,7 @@
 function navigateTo(page: string): void {
     switch (page) {
         case 'ageCalculator':
-            fetch('ageCalculator.html')
+            fetch('calculator.html')
                 .then((response) => response.text())
                 .then((data) => {
                     document.getElementById('content')!.innerHTML = data;
@@ -9,7 +9,7 @@ function navigateTo(page: string): void {
                 .catch((error) => console.error('Error loading page:', error));
                 break;
         case 'scheduleApp':
-            fetch('schdeulApp.html')
+            fetch('schedule.html')
                 .then((response) => response.text())
                 .then((data) => {
                     document.getElementById('content')!.innerHTML = data;
