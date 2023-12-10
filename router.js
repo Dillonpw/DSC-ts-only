@@ -1,7 +1,7 @@
 function navigateTo(page) {
     switch (page) {
         case 'ageCalculator':
-            fetch('ageCalculator.html')
+            fetch('Calculator.html')
                 .then(function (response) { return response.text(); })
                 .then(function (data) {
                 document.getElementById('content').innerHTML = data;
@@ -9,7 +9,7 @@ function navigateTo(page) {
                 .catch(function (error) { return console.error('Error loading page:', error); });
             break;
         case 'scheduleApp':
-            fetch('schdeulApp.html')
+            fetch('schedule.html')
                 .then(function (response) { return response.text(); })
                 .then(function (data) {
                 document.getElementById('content').innerHTML = data;
