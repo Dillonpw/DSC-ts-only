@@ -3,73 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Custom Rotating Work Schedule</title>
-        <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
-        <link rel="stylesheet" href="/src/styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Montserrat:wght@700&family=Orbitron&family=Poppins:wght@400;500;600;700&family=Rowdies:wght@700&family=Ubuntu:ital,wght@0,400;1,700&display=swap"
-            rel="stylesheet"
-        />
+        <title>Cheat Sheet</title>
     </head>
     <body>
-        <div class="header">
-            <h1>Rotating Work Schedule</h1>
-            <h2>For Police, Fire, EMS, and Dispatchers</h2>
-        </div>
-        <div id="infoBox">
-            <button id="popBtn" onclick="popUp()">More Info</button>
+        <h1>Welcome</h1>
+        <nav>
+            <a href="#" onclick="navigateTo('ageCalculator')"
+                >Go to Age Calculator</a
+            >
+            <a href="#" onclick="navigateTo('scheduleApp')"
+                >Go to SChedule App</a
+            >
+        </nav>
 
-            <div id="moreInfo" onclick="popDown()" style="display: none">
-                <p>
-                    fill out the boxes below to quickly see your work schedule
-                    for the number of days you decide. <br />Make sure you start
-                    the scheduling on the first day of your work rotation!
-                </p>
-            </div>
-        </div>
-        <div class="container">
-            <form class="scheduling" onsubmit="generateSchedule()">
-                <label for="workDays">Work Days:</label>
-                <input type="number" id="workDays" min="1" required />
-                <label for="offDays">Off Days:</label>
-                <input type="number" id="offDays" min="1" required />
-                <label for="totalDays">Total Days:</label>
-                <input type="number" id="totalDays" min="1" required />
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" required />
-
-                <button type="submit" id="generate">Show Schedule</button>
-            </form>
-
-            <div id="tableWrapper">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Week Day</th>
-                            <th>Date</th>
-                            <th>On/Off</th>
-                        </tr>
-                    </thead>
-                    <tbody id="scheduleTable">
-                        <!-- Schedule data will be inserted here using JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <footer class="credits">
-            <p>
-                Created by Dillon Walsh. <br />For more of my work check
-                <a
-                    id="profile-link"
-                    href="https://github.com/Dillonpw/projects"
-                    target="_blank"
-                    >Github</a
-                ><br />
-                &copy;2023 All Rights Reserved
-            </p>
-        </footer>
-        <script src="/src/main.ts"></script>
+        <div id="content"></div>
+        <script src="src/main.ts"></script>
+        <script src="router.js"></script>
     </body>
 </html>
