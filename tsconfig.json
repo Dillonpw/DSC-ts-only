@@ -19,5 +19,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "router.ts"]
+  "include": ["src", "src/router.ts"]
 }

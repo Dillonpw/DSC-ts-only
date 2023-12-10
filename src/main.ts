@@ -4,28 +4,72 @@ interface ScheduleEntry {
     shift: string;
 }
 
+function navigateTo(page: string): void {
+    switch (page) {
+        case 'toHome':
+            fetch('index.html')
+            .then((response) => response.text())
+            .then((data) => {
+                const contentDiv = document.getElementById('content');
+                if (contentDiv) {
+                    contentDiv.innerHTML = data;
+                    attachEventListeners();
+                }
+            })
+            .catch((error) => console.error('Error loading page:', error));
+        break;
+        case 'ageCalculator':
+            fetch('calculator.html')
+                .then((response) => response.text())
+                .then((data) => {
+                    const contentDiv = document.getElementById('content');
+                    if (contentDiv) {
+                        contentDiv.innerHTML = data;
+                        attachEventListeners();
+                    }
+                })
+                .catch((error) => console.error('Error loading page:', error));
+            break;
+        case 'scheduleApp':
+            fetch('schedule.html')
+                .then((response) => response.text())
+                .then((data) => {
+                    const contentDiv = document.getElementById('content');
+                    if (contentDiv) {
+                        contentDiv.innerHTML = data;
+                        attachEventListeners();
+                    }
+                })
+                .catch((error) => console.error('Error loading page:', error));
+            break;
+        default:
+            document.getElementById('content')!.innerHTML = '';
+    }
+}
+
 function calcYearDiff(year: number): number {
-  const currentYear = new Date().getFullYear();
-  const difference = currentYear - year;
-  return difference;
+    const currentYear = new Date().getFullYear();
+    const difference = currentYear - year;
+    return difference;
 }
 
 function handleSubmit(event: Event): void {
-  event.preventDefault(); 
+    event.preventDefault();
 
-  const yearInput = document.getElementById('year') as HTMLInputElement;
-  const year = parseInt(yearInput.value);
+    const yearInput = document.getElementById('year') as HTMLInputElement;
+    const year = parseInt(yearInput.value);
 
-  if (!isNaN(year)) {
-      const age = calcYearDiff(year);
-      displayResult(age);
-  }
+    if (!isNaN(year)) {
+        const age = calcYearDiff(year);
+        displayResult(age);
+    }
 }
 
 function displayResult(age: number): void {
-  const resultDiv = document.getElementById('result') as HTMLDivElement;
-  resultDiv.textContent = `Your age is: ${age} years`;
+    const resultDiv = document.getElementById('result') as HTMLDivElement;
+    resultDiv.textContent = `Patient is: ${age}`;
 }
+
 function formatDate(date: Date): string {
     const year = date.getUTCFullYear();
     const month = String(date.getUTCMonth() + 1).padStart(2, '0');
@@ -164,10 +208,58 @@ const popDown = (): void => {
     button.style.display = 'block';
 };
 
-document
-    .getElementById('generate')!
-    .addEventListener('click', generateSchedule);
+function attachEventListeners(): void {
+    const toHome = document.getElementById('toHome');
+    if (toHome) {
+        toHome.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateTo('home');
+        });
+    }
 
-window.onload = function (): void {
+    const toAgeCalculator = document.getElementById('toAgeCalculator');
+    if (toAgeCalculator) {
+        toAgeCalculator.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateTo('ageCalculator');
+        });
+    }
+
+    const toScheduleApp = document.getElementById('toScheduleApp');
+    if (toScheduleApp) {
+        toScheduleApp.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateTo('scheduleApp');
+        });
+    }
+
+    const generateButton = document.getElementById('generate');
+    if (generateButton) {
+        generateButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            generateSchedule(e);
+        });
+    }
+
+    const popBtn = document.getElementById('popBtn');
+    if (popBtn) {
+        popBtn.addEventListener('click', popUp);
+    }
+
+    const moreInfo = document.getElementById('moreInfo');
+    if (moreInfo) {
+        moreInfo.addEventListener('click', popDown);
+    }
+
+    const ageForm = document.getElementById('ageForm');
+    if (ageForm) {
+        ageForm.addEventListener('submit', handleSubmit);
+    }
+
+
+}
+
+window.onload = (): void => {
+    attachEventListeners();
     prefillInputs();
 };
