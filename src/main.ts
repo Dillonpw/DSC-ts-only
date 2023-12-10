@@ -19,7 +19,7 @@ function navigateTo(page: string): void {
             .catch((error) => console.error('Error loading page:', error));
         break;
         case 'ageCalculator':
-            fetch('calculator.html')
+            fetch('calculatorPage.html')
                 .then((response) => response.text())
                 .then((data) => {
                     const contentDiv = document.getElementById('content');
@@ -31,7 +31,7 @@ function navigateTo(page: string): void {
                 .catch((error) => console.error('Error loading page:', error));
             break;
         case 'scheduleApp':
-            fetch('schedule.html')
+            fetch('schedulePage.html')
                 .then((response) => response.text())
                 .then((data) => {
                     const contentDiv = document.getElementById('content');
