@@ -1,7 +1,7 @@
 function navigateTo(page) {
     switch (page) {
         case 'ageCalculator':
-            fetch('Calculator.html')
+            fetch('calculator.html')
                 .then(function (response) { return response.text(); })
                 .then(function (data) {
                 document.getElementById('content').innerHTML = data;
