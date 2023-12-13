@@ -28,6 +28,10 @@ body {
     align-items: center;
 }
 
+a{
+    cursor: pointer;
+}
+
 .header {
     padding: 1rem 2rem;
     color: black;
