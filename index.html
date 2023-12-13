@@ -14,13 +14,17 @@
         <title>Cheat Sheet</title>
     </head>
     <body>
-        <nav>
-            <a href="#home" id="toHome">Home</a>
-            <a href="#age" id="toAgeCalculator">Go to Age Calculator</a>
-            <a href="#schedule" id="toScheduleApp">Go to Schedule App</a>
-        </nav>
-
-        <div id="content"></div>
+        <div id="content">
+            <nav>
+                <a data-navigate="toHome" id="Home">Home</a>
+                <a data-navigate="toAgeCalculator" id="ageCalculator"
+                    >Go to Age Calculator</a
+                >
+                <a data-navigate="toScheduleApp" id="scheduleApp"
+                    >Go to Schedule App</a
+                >
+            </nav>
+        </div>
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>

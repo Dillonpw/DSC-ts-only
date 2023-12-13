@@ -8,17 +8,17 @@ function navigateTo(page: string): void {
     switch (page) {
         case 'toHome':
             fetch('index.html')
-            .then((response) => response.text())
-            .then((data) => {
-                const contentDiv = document.getElementById('content');
-                if (contentDiv) {
-                    contentDiv.innerHTML = data;
-                    attachEventListeners();
-                }
-            })
-            .catch((error) => console.error('Error loading page:', error));
-        break;
-        case 'ageCalculator':
+                .then((response) => response.text())
+                .then((data) => {
+                    const contentDiv = document.getElementById('content');
+                    if (contentDiv) {
+                        contentDiv.innerHTML = data;
+                        attachEventListeners();
+                    }
+                })
+                .catch((error) => console.error('Error loading page:', error));
+            break;
+        case 'toAgeCalculator':
             fetch('calculatorPage.html')
                 .then((response) => response.text())
                 .then((data) => {
@@ -30,7 +30,7 @@ function navigateTo(page: string): void {
                 })
                 .catch((error) => console.error('Error loading page:', error));
             break;
-        case 'scheduleApp':
+        case 'toScheduleApp':
             fetch('schedulePage.html')
                 .then((response) => response.text())
                 .then((data) => {
@@ -256,7 +256,15 @@ function attachEventListeners(): void {
         ageForm.addEventListener('submit', handleSubmit);
     }
 
-
+    document.querySelectorAll('[data-navigate]').forEach((link: Element) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = (link as HTMLElement).getAttribute('data-navigate');
+            if (page) {
+                navigateTo(page);
+            }
+        });
+    });
 }
 
 window.onload = (): void => {
