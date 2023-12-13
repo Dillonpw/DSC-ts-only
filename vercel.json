@@ -1,8 +1,16 @@
 {
     "rewrites":[
         {
-            "source": "(.*)",
+            "source": "home",
             "destination": "/index.html"
+        },
+        {
+            "source": "age",
+            "destination": "/calculatorPage.html"
+        },
+        {
+            "source": "schedule",
+            "destination": "/schedulePage.html"
         }
     ]
 }
