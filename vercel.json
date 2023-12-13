@@ -2,15 +2,15 @@
     "rewrites": [
         {
             "source": "/home",
-            "destination": "/index.html"
+            "destination": "/dist/index.html"
         },
         {
             "source": "/age",
-            "destination": "/calculatorPage.html"
+            "destination": "/dist/calculatorPage.html"
         },
         {
             "source": "/schedule",
-            "destination": "/schedulePage.html"
+            "destination": "/dist/schedulePage.html"
         }
     ]
 }
