@@ -14,59 +14,61 @@
         />
     </head>
     <body>
-        <div class="header">
+        <header>
             <nav>
                 <a data-navigate="toHome" id="Home">Home</a>
                 <a data-navigate="toAgeCalculator" id="ageCalculator"
-                    >Go to Age Calculator</a
+                    >Age Calculator</a
                 >
                 <a data-navigate="toScheduleApp" id="scheduleApp"
-                    >Go to Schedule App</a
+                    >Schedule Tracker</a
                 >
             </nav>
-            <h1>Rotating Work Schedule</h1>
-            <h2>For Police, Fire, EMS, and Dispatchers</h2>
-        </div>
-        <div id="infoBox">
-            <button id="popBtn">More Info</button>
+            <h1>Schedule Tracker</h1>
+        </header>
+        <main>
+            <div id="infoBox">
+                <button id="popBtn">More Info</button>
 
-            <div id="moreInfo" style="display: none">
-                <p>
-                    fill out the boxes below to quickly see your work schedule
-                    for the number of days you decide. <br />Make sure you start
-                    the scheduling on the first day of your work rotation!
-                </p>
+                <div id="moreInfo" style="display: none">
+                    <p>
+                        fill out the boxes below to quickly see your work
+                        schedule for the number of days you decide. <br />Make
+                        sure you start the scheduling on the first day of your
+                        work rotation!
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <form class="scheduling">
-                <label for="workDays">Work Days:</label>
-                <input type="number" id="workDays" min="1" required />
-                <label for="offDays">Off Days:</label>
-                <input type="number" id="offDays" min="1" required />
-                <label for="totalDays">Total Days:</label>
-                <input type="number" id="totalDays" min="1" required />
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" required />
+            <div class="container">
+                <form class="scheduling">
+                    <label for="workDays">Work Days:</label>
+                    <input type="number" id="workDays" min="1" required />
+                    <label for="offDays">Off Days:</label>
+                    <input type="number" id="offDays" min="1" required />
+                    <label for="totalDays">Total Days:</label>
+                    <input type="number" id="totalDays" min="1" required />
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" required />
 
-                <button type="submit" id="generate">Show Schedule</button>
-            </form>
+                    <button type="submit" id="generate">Show Schedule</button>
+                </form>
 
-            <div id="tableWrapper">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Week Day</th>
-                            <th>Date</th>
-                            <th>On/Off</th>
-                        </tr>
-                    </thead>
-                    <tbody id="scheduleTable">
-                        <!-- Schedule data will be inserted here using JavaScript -->
-                    </tbody>
-                </table>
+                <div id="tableWrapper">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Week Day</th>
+                                <th>Date</th>
+                                <th>On/Off</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTable">
+                            <!-- Schedule data will be inserted here using JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </main>
         <footer class="credits">
             <p>
                 Created by Dillon Walsh. <br />For more of my work check

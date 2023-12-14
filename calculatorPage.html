@@ -14,27 +14,55 @@
         <title>Age Calculator</title>
     </head>
     <body>
-        <nav>
-            <a data-navigate="toHome" id="Home">Home</a>
-            <a data-navigate="toAgeCalculator" id="ageCalculator"
-                >Go to Age Calculator</a
-            >
-            <a data-navigate="toScheduleApp" id="scheduleApp"
-                >Go to Schedule App</a
-            >
-        </nav>
-        <form id="ageForm">
-            <label for="year">Birth Year</label>
-            <input
-                id="year"
-                type="number"
-                minlength="4"
-                maxlength="4"
-                required
-            />
-            <button type="submit">Submit</button>
-        </form>
-        <div id="result"></div>
-        <script type="module" src="src/main.js"></script>
+        <header>
+            <nav>
+                <a data-navigate="toHome" id="Home">Home</a>
+                <a data-navigate="toAgeCalculator" id="ageCalculator"
+                    >Age Calculator</a
+                >
+                <a data-navigate="toScheduleApp" id="scheduleApp"
+                    >Schedule App</a
+                >
+            </nav>
+            <h1>Quick Age Calculator</h1>
+        </header>
+        <main class="container">
+            <div id="infoBox">
+                <button id="popBtn">More Info</button>
+
+                <div id="moreInfo" style="display: none">
+                    <p>
+                        This one is pretty straight-forward; Just type in the
+                        year the person was born and when submitted, the
+                        person's age based off of today's date will be returned!
+                    </p>
+                </div>
+            </div>
+            <form id="ageForm">
+                <label for="year">Birth Year</label>
+                <input
+                    id="year"
+                    type="number"
+                    minlength="4"
+                    maxlength="4"
+                    required
+                />
+                <button type="submit">Submit</button>
+                <h3 id="result"></h3>
+            </form>
+        </main>
+        <footer class="credits">
+            <p>
+                Created by Dillon Walsh. <br />For more of my work check
+                <a
+                    id="profile-link"
+                    href="https://github.com/Dillonpw/projects"
+                    target="_blank"
+                    >Github</a
+                ><br />
+                &copy;2023 All Rights Reserved
+            </p>
+        </footer>
+        <script type="module" src="/src/main.js"></script>
     </body>
 </html>
