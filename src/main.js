@@ -1,3 +1,18 @@
+var hamburger = document.querySelector('.hamburger');
+var navMenu = document.querySelector('.nav-menu');
+var navLink = document.querySelectorAll('.nav-link');
+function mobileMenu() {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+}
+hamburger.addEventListener('click', mobileMenu);
+navLink.forEach(function (n) { return n.addEventListener('click', closeMenu); });
+function closeMenu() {
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+}
 function navigateTo(page) {
     switch (page) {
         case 'toHome':
@@ -99,10 +114,10 @@ function generateSchedule(e) {
     var startDate = new Date(startDateInput);
     var rotatingSchedule = generateRotatingSchedule(workDays, offDays, totalDays, startDate);
     renderTableView(rotatingSchedule);
-    setCookie('workDays', workDays.toString(), 7);
-    setCookie('offDays', offDays.toString(), 7);
-    setCookie('totalDays', totalDays.toString(), 7);
-    setCookie('startDate', startDateInput, 7);
+    setCookie('workDays', workDays.toString(), 30);
+    setCookie('offDays', offDays.toString(), 30);
+    setCookie('totalDays', totalDays.toString(), 30);
+    setCookie('startDate', startDateInput, 30);
 }
 function renderTableView(schedule) {
     var scheduleTable = document.getElementById('scheduleTable');

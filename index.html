@@ -15,23 +15,55 @@
     </head>
     <body>
         <div id="content">
-            <header>
-                <nav>
-                    <a data-navigate="toHome" id="Home">Home</a>
-                    <a data-navigate="toAgeCalculator" id="ageCalculator"
-                        >Age Calculator</a
-                    >
-                    <a data-navigate="toScheduleApp" id="scheduleApp"
-                        >Schedule App</a
-                    >
+            <header class="header">
+                <nav class="navbar">
+                    <a href="#" class="nav-logo">WebDev.</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a data-navigate="toHome" id="home" class="nav-link"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                data-navigate="toScheduleApp"
+                                id="scheduleApp"
+                                class="nav-link"
+                                >Schedule Tracker</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                data-navigate="toAgeCalculator"
+                                id="ageCalculator"
+                                class="nav-link"
+                                >Age Calculator</a
+                            >
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </nav>
-                <h1>Dispatcher Cheet Sheet</h1>
-                <h2>For Police, Fire, EMS, and Dispatchers</h2>
             </header>
+            <h1>Dispatcher Cheet Sheet</h1>
             <main>
-                <h1>Welcome!</h1>
-                <p>This is a cheet sheet for my fellow 911 dispatchers</p>
-                <p>navigate through the pages to see what we have to offer!</p>
+                <div id="intro">
+                    <h2>Welcome!</h2>
+                    <p>
+                        This is a cheat sheet for my fellow 911 dispatchers
+                        consitisting of a few useful tools you may have been
+                        looking for while at work.
+                    </p>
+                    <p>
+                        navigate through the pages to see what we have to offer!
+                    </p>
+                    <p id="checkBack">
+                        And check back often to see if there's anything new!
+                    </p>
+                </div>
             </main>
             <footer class="credits">
                 <p>
@@ -46,6 +78,6 @@
                 </p>
             </footer>
         </div>
-        <script type="module" src="src/main.js"></script>
+        <script type="module" src="src/main.js" defer></script>
     </body>
 </html>

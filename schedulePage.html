@@ -14,28 +14,53 @@
         />
     </head>
     <body>
-        <header>
-            <nav>
-                <a data-navigate="toHome" id="Home">Home</a>
-                <a data-navigate="toAgeCalculator" id="ageCalculator"
-                    >Age Calculator</a
-                >
-                <a data-navigate="toScheduleApp" id="scheduleApp"
-                    >Schedule Tracker</a
-                >
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">WebDev.</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a data-navigate="toHome" id="home" class="nav-link"
+                            >Home</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            data-navigate="toScheduleApp"
+                            id="scheduleApp"
+                            class="nav-link"
+                            >Schedule Tracker</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            data-navigate="toAgeCalculator"
+                            id="ageCalculator"
+                            class="nav-link"
+                            >Age Calculator</a
+                        >
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
-            <h1>Schedule Tracker</h1>
         </header>
+        <h1>Schedule Tracker</h1>
         <main>
             <div id="infoBox">
                 <button id="popBtn">More Info</button>
 
                 <div id="moreInfo" style="display: none">
                     <p>
-                        fill out the boxes below to quickly see your work
-                        schedule for the number of days you decide. <br />Make
-                        sure you start the scheduling on the first day of your
-                        work rotation!
+                        Fill in all of the boxes below to quickly see your work
+                        schedule for the number of days you decide. <br />
+                        Make sure you start the scheduling on the first day of
+                        your work rotation! <br />
+                        The data you type into the boxes below will be saved on
+                        your device's browser for 30 days so you will not be
+                        expetced to remember every detail.
                     </p>
                 </div>
             </div>
@@ -81,7 +106,7 @@
                 &copy;2023 All Rights Reserved
             </p>
         </footer>
-        <script type="module" src="/src/main.ts"></script>
+        <script type="module" src="/src/main.ts" defer></script>
         <script></script>
     </body>
 </html>

@@ -4,6 +4,28 @@ interface ScheduleEntry {
     shift: string;
 }
 
+const hamburger = document.querySelector('.hamburger') as HTMLElement;
+const navMenu = document.querySelector('.nav-menu') as HTMLElement;
+const navLink = document.querySelectorAll(
+    '.nav-link'
+) as NodeListOf<HTMLElement>;
+
+function mobileMenu(): void {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+}
+
+hamburger.addEventListener('click', mobileMenu);
+
+navLink.forEach((n) => n.addEventListener('click', closeMenu));
+
+function closeMenu(): void {
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+}
+
 function navigateTo(page: string): void {
     switch (page) {
         case 'toHome':
@@ -139,10 +161,10 @@ function generateSchedule(e: Event): void {
     );
     renderTableView(rotatingSchedule);
 
-    setCookie('workDays', workDays.toString(), 7);
-    setCookie('offDays', offDays.toString(), 7);
-    setCookie('totalDays', totalDays.toString(), 7);
-    setCookie('startDate', startDateInput, 7);
+    setCookie('workDays', workDays.toString(), 30);
+    setCookie('offDays', offDays.toString(), 30);
+    setCookie('totalDays', totalDays.toString(), 30);
+    setCookie('startDate', startDateInput, 30);
 }
 
 function renderTableView(schedule: ScheduleEntry[]): void {
