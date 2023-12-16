@@ -1,19 +1,5 @@
-var hamburger = document.querySelector('.hamburger');
-var navMenu = document.querySelector('.nav-menu');
-var navLink = document.querySelectorAll('.nav-link');
-function mobileMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-}
-hamburger.addEventListener('click', mobileMenu);
-navLink.forEach(function (n) { return n.addEventListener('click', closeMenu); });
-function closeMenu() {
-    if (hamburger && navMenu) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-}
 function navigateTo(page) {
+    console.log("navigating to:", page);
     switch (page) {
         case 'toHome':
             fetch('index.html')
@@ -177,6 +163,26 @@ var popDown = function () {
     button.style.display = 'block';
 };
 function attachEventListeners() {
+    var navHeader = document.getElementById('navHeader');
+    var dropdown = document.getElementById('dropdown');
+    if (navHeader && dropdown) {
+        navHeader.addEventListener('click', function () {
+            dropdown.classList.toggle('show');
+        });
+    }
+    else {
+        console.error('NavHeader or Dropdown elements not found');
+    }
+    var navLinks = document.querySelectorAll('[data-navigate]');
+    navLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var page = link.getAttribute('data-navigate');
+            if (page) {
+                navigateTo(page);
+            }
+        });
+    });
     var toHome = document.getElementById('toHome');
     if (toHome) {
         toHome.addEventListener('click', function (e) {
@@ -217,15 +223,6 @@ function attachEventListeners() {
     if (ageForm) {
         ageForm.addEventListener('submit', handleSubmit);
     }
-    document.querySelectorAll('[data-navigate]').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            var page = link.getAttribute('data-navigate');
-            if (page) {
-                navigateTo(page);
-            }
-        });
-    });
 }
 window.onload = function () {
     attachEventListeners();

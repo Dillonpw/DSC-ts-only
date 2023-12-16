@@ -4,29 +4,8 @@ interface ScheduleEntry {
     shift: string;
 }
 
-const hamburger = document.querySelector('.hamburger') as HTMLElement;
-const navMenu = document.querySelector('.nav-menu') as HTMLElement;
-const navLink = document.querySelectorAll(
-    '.nav-link'
-) as NodeListOf<HTMLElement>;
-
-function mobileMenu(): void {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-}
-
-hamburger.addEventListener('click', mobileMenu);
-
-navLink.forEach((n) => n.addEventListener('click', closeMenu));
-
-function closeMenu(): void {
-    if (hamburger && navMenu) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-}
-
 function navigateTo(page: string): void {
+    console.log("navigating to:", page)
     switch (page) {
         case 'toHome':
             fetch('index.html')
@@ -34,7 +13,7 @@ function navigateTo(page: string): void {
                 .then((data) => {
                     const contentDiv = document.getElementById('content');
                     if (contentDiv) {
-                        contentDiv.innerHTML = data;
+                        contentDiv.innerHTML = '';
                         attachEventListeners();
                     }
                 })
@@ -231,6 +210,28 @@ const popDown = (): void => {
 };
 
 function attachEventListeners(): void {
+    const navHeader = document.getElementById('navHeader');
+    const dropdown = document.getElementById('dropdown');
+
+    if (navHeader && dropdown) {
+        navHeader.addEventListener('click', () => {
+            dropdown.classList.toggle('show');
+        });
+    } else {
+        console.error('NavHeader or Dropdown elements not found');
+    }
+
+    const navLinks = document.querySelectorAll('[data-navigate]');
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-navigate');
+            if (page) {
+                navigateTo(page);
+            }
+        });
+    });
+
     const toHome = document.getElementById('toHome');
     if (toHome) {
         toHome.addEventListener('click', (e) => {
@@ -277,16 +278,6 @@ function attachEventListeners(): void {
     if (ageForm) {
         ageForm.addEventListener('submit', handleSubmit);
     }
-
-    document.querySelectorAll('[data-navigate]').forEach((link: Element) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const page = (link as HTMLElement).getAttribute('data-navigate');
-            if (page) {
-                navigateTo(page);
-            }
-        });
-    });
 }
 
 window.onload = (): void => {

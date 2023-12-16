@@ -13,38 +13,18 @@
         />
         <title>Age Calculator</title>
     </head>
-    <body>
+    <body id="content">
         <header class="header">
-            <nav class="navbar">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a data-navigate="toHome" id="home" class="nav-link"
-                            >Home</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            data-navigate="toScheduleApp"
-                            id="scheduleApp"
-                            class="nav-link"
-                            >Schedule Tracker</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            data-navigate="toAgeCalculator"
-                            id="ageCalculator"
-                            class="nav-link"
-                            >Age Calculator</a
-                        >
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+            <img src="assets/logo.svg" alt="logo" />
+
+            <div id="navBar">
+                <nav id="navHeader">&#8801;</nav>
+                <div id="dropdown">
+                    <a data-navigate="toHome">Home</a>
+                    <a data-navigate="toAgeCalculator">Age Calculator</a>
+                    <a data-navigate="toScheduleApp">Schedule App</a>
                 </div>
-            </nav>
+            </div>
         </header>
         <h1>Quick Age Calculator</h1>
         <main class="container">
